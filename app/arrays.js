@@ -1,17 +1,29 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(function() {
+  var each = function(arr,cb){
+    for(i=0; i < arr.length; i++){
+        cb.call(null,arr[i]);
+    }
+  };
   return {
     indexOf : function(arr, item) {
-
+        for(i=0; i<arr.length; i++){
+            if(arr[i]==item) return i
+        };
+        return -1
     },
 
     sum : function(arr) {
-
+        var total = 0;
+        each(arr,function(elem){
+            total += elem;
+        });
+        return total
     },
 
     remove : function(arr, item) {
-
+        
     },
 
     removeWithoutCopy : function(arr, item) {
